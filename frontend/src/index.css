@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+transition: background-color 0.3s;
+}
+
+/* App.css */
+.gradient-text {
+    background: linear-gradient(135deg, #17ead9, #6078ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-hover {
+    transition: box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-hoverd {
+    transition: box-shadow 0.3s ease;
+}
+
+.card-hoverd:hover {
+    box-shadow: 0 5px 15px rgba(71, 71, 71, 0.15);
+}
+
+.nav-bar {
+    background: rgba( 255, 255, 255, 0.7 );
+backdrop-filter: blur( 1px );
+-webkit-backdrop-filter: blur( 1px );
+}
+
+
+
+.toast-success-black {
+    background-color: #424242 !important;
+     color: rgb(209 213 219) !important;
+  }
+
