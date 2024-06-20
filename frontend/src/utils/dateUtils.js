@@ -8,13 +8,13 @@ export const formatTimestamp = (timestamp) => {
   if (diffInSeconds < 10) {
     return 'just now';
   } else if (diffInSeconds < 60) {
-    return `${diffInSeconds} sec ago`;
+    return `${diffInSeconds}s ago`;
   } else if (diffInSeconds < 3600) {
     const minutes = Math.floor(diffInSeconds / 60);
-    return `${minutes} min${minutes === 1 ? '' : 's'} ago`;
+    return `${minutes}m ago`;
   } else if (diffInSeconds < 86400) {
     const hours = Math.floor(diffInSeconds / 3600);
-    return `${hours} hr${hours === 1 ? '' : 's'} ago`;
+    return `${hours}h ago`;
   } else {
     return format(date, 'dd MMM yyyy');
   }

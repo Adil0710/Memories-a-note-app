@@ -6,8 +6,6 @@ import axios from "axios";
 import { ThemeProvider } from "./context/ThemeProvider";
 
 const apiUrl = process.env.REACT_APP_API_URL;
-console.log('API URL:', apiUrl); // Debugging line to check if the URL is loaded
-console.log(process.env);
 
 axios.defaults.baseURL = `${apiUrl}`;
 axios.defaults.withCredentials = true;

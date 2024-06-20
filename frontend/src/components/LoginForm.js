@@ -50,8 +50,8 @@ function LoginForm() {
       alignItems: "center",
       
       display: "flex",
-      height: screens.sm ? "100vh" : "auto",
-      padding: screens.md ? `${token.sizeXXL}px 0px` : "80px"
+      height: screens.sm ? "100vh" : "100vh",
+      padding: screens.md ? `${token.sizeXXL}px 0px` : "10px"
     },
     text: {
       marginTop: '16px',

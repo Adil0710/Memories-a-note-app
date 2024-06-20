@@ -34,18 +34,32 @@ const authStore = create((set) => ({
         try {
             const { loginForm} = authStore.getState()
 
-           const res = await axios.post('/login', loginForm)
+            const promise = toast.promise(
+                axios.post('/login', loginForm),
+                {
+                    loading: 'Logging in...', // Loading message
+                    success: (res) => {
+                        return `${res.data.user}, ${res.data.msg}`; // Success message
+                    },
+                    error: (error) => {
+                        return error.response?.data?.msg || 'An error occurred while logging in.'; // Error message
+                    },
+                }
+            );
+
+            const res = await promise
+           
             set({loggedIn: true, loginForm:{
                 email:'',
                 password:'',
             },
             userData: res.data.user, // Set user data after successful login
         })
-            toast.success(`${res.data.user}, ${res.data.msg}`);
+            // toast.success(`${res.data.user}, ${res.data.msg}`);
             console.log(res);
         } catch (error) {
             console.log(error)
-            toast.error(error.response.data.msg);
+            
         }
     },
 
@@ -77,7 +91,20 @@ const authStore = create((set) => ({
         try {
             const { signupForm} = authStore.getState()
 
-           const res = await axios.post('/signup', signupForm)
+
+            const promise = toast.promise(
+                axios.post('/signup', signupForm),
+                {
+                    loading: 'Signing up...', // Loading message
+                    success: (res) => {
+                        return `${res.data.msg}`; // Success message
+                    },
+                    error: (error) => {
+                        return error.response?.data?.msg || 'An error occurred while logging in.'; // Error message
+                    },
+                }
+            );
+           const res = await promise
             console.log(res);
             set({
                 signupForm:{
@@ -92,8 +119,28 @@ const authStore = create((set) => ({
     },
 
     logout: async () => {
-        await axios.get('/logout')
-        set({loggedIn: false})
+        try {
+            const promise = toast.promise(
+                axios.get('/logout'),
+                {
+                    loading: 'Logging out...', // Loading message
+                    success: (res) => {
+                        return `${res.data.msg}`; // Success message
+                    },
+                    error: (error) => {
+                        return error.response?.data?.msg || 'An error occurred while logging out.'; // Error message
+                    },
+                }
+            );
+    
+            const res = await promise;
+            console.log(res);
+            // Update state after successful logout
+            set({ loggedIn: false });
+    
+        } catch (error) {
+            console.log(error);
+        }
     }
 }))
 

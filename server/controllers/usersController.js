@@ -2,24 +2,30 @@ import User from "../models/user.js";
 import bcrypt from "bcryptjs";
 import  jwt  from "jsonwebtoken";
 
-async function signup (req, res) {
+const signup = async (req, res) => {
     try {
-    // Get the name, email and password from the req body
-    const {name, email, password} = req.body
-    
-    // Hash password
-    const hashedPassword = bcrypt.hashSync(password, 8)
+        const { name, email, password } = req.body;
 
-    // Create user with the data
-    await User.create({name, email, password: hashedPassword})
+        // Check if the user already exists with the provided email
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ msg: "Email already registered. Please use a different email or login." });
+        }
 
-    // Respond 
-    res.sendStatus(200)        
+        // Hash the password
+        const hashedPassword = bcrypt.hashSync(password, 8);
+
+        // Create a new user
+        await User.create({ name, email, password: hashedPassword });
+
+        // Respond with success message
+        res.status(200).json({ msg: `${name} signed up successfully.` });
     } catch (error) {
-        console.log(error);
-        res.sendStatus(400)
+        console.error('Error during signup:', error);
+        // Respond with error message
+        res.status(400).json({ msg: "An error occurred while signing up. Please try again later." });
     }
-}
+};
 
 async function login(req, res) {
     try {
@@ -43,12 +49,13 @@ async function login(req, res) {
         // Create a JWT token
         const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
         const token = jwt.sign({ sub: user._id, exp }, process.env.SECRET);
+        const sameSite = process.env.NODE_ENV === 'production' ? 'none' : 'lax';
 
         // Set the cookie
         res.cookie("Authorization", token, {
             expires: new Date(exp),
             httpOnly: true,
-            sameSite: 'None',
+            sameSite: sameSite,
             secure: process.env.NODE_ENV === 'production',
         });
 
@@ -57,17 +64,17 @@ async function login(req, res) {
 
     } catch (error) {
         console.log('Error:', error);
-        res.status(400).json({ msg: "An error occurred" });
+        res.status(400).json({ msg: "An error occurred while logging in. Please try again later." });
     }
 }
 
 function logout (req, res) {
     try {
         res.clearCookie("Authorization")
-        res.sendStatus(200) 
+        res.status(200).json({msg: "Logged out successfully"}) 
     } catch (error) {
         console.log(error);
-        res.sendStatus(400)
+        res.status(400).json({msg: "An error occurred while logging out. Please try again later."})
     }
 }
 
