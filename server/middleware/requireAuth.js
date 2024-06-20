@@ -1,28 +1,33 @@
-import jwt  from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import User from "../models/user.js";
-async function requireAuth(req, res, next){
+
+async function requireAuth(req, res, next) {
     try {
-    // Read token off cookies
-    const token = req.cookies.Authorization
+        const token = req.cookies.Authorization;
+        if (!token) {
+            console.log('No token found');
+            return res.sendStatus(401);
+        }
 
-    // Decode the cookie
-    const decoded = jwt.verify(token, process.env.SECRET)
+        const decoded = jwt.verify(token, process.env.SECRET);
 
-    // Check expiration
-    if (Date.now() > decoded.exp) return res.sendStatus(401)
+        if (Date.now() >= decoded.exp * 1000) {
+            console.log('Token expired');
+            return res.sendStatus(401);
+        }
 
-    // Find user using decoded sub
-    const user = await User.findById(decoded.sub)
-    if(!user) return res.sendStatus(401)
+        const user = await User.findById(decoded.sub);
+        if (!user) {
+            console.log('User not found');
+            return res.sendStatus(401);
+        }
 
-    // Attach user to req
-    req.user = user
-
-    // Continue on
-    next()
-    }catch (error) {
-        return res.sendStatus(401)
+        req.user = user;
+        next();
+    } catch (error) {
+        console.log('Authentication error:', error);
+        res.sendStatus(401);
     }
 }
 
-export {requireAuth}
+export { requireAuth };
