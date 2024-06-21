@@ -11,7 +11,17 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER, // Use environment variables for sensitive data
     pass: process.env.EMAIL_PASS,
   },
+  logger: true,  // Enable logging
+  debug: true,  // Show debug output
 });
+
+transporter.verify(function(error, success) {
+    if (error) {
+      console.error('SMTP connection error:', error);
+    } else {
+      console.log('SMTP connection established successfully');
+    }
+  });
 
 async function sendEmail(to, subject, text, html) {
   try {
