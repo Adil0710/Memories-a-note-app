@@ -22,6 +22,8 @@ const signup = async (req, res) => {
 
         // Send Welcome Email
         sendEmail(email, "Welcome to Memories ✨", "", registerEmail(name))
+        .then(info => console.log('Email sent successfully:', info))
+  .catch(error => console.error('Failed to send email:', error));
 
         // Respond with success message
         res.status(200).json({ msg: `${name} signed up successfully.` });
