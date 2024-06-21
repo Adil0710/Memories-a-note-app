@@ -1,6 +1,8 @@
 import User from "../models/user.js";
 import bcrypt from "bcryptjs";
 import  jwt  from "jsonwebtoken";
+import sendEmail from "../helpers/sendEmail.js";
+import registerEmail from "../helpers/registerEmail.js";
 
 const signup = async (req, res) => {
     try {
@@ -17,6 +19,9 @@ const signup = async (req, res) => {
 
         // Create a new user
         await User.create({ name, email, password: hashedPassword });
+
+        // Send Welcome Email
+        sendEmail(email, "Welcome to Memories ✨", "", registerEmail(name))
 
         // Respond with success message
         res.status(200).json({ msg: `${name} signed up successfully.` });
