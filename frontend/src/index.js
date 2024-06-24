@@ -6,6 +6,7 @@ import axios from "axios";
 import { ThemeProvider } from "./context/ThemeProvider";
 import 'remixicon/fonts/remixicon.css'
 
+
 const apiUrl = process.env.REACT_APP_API_URL;
 
 axios.defaults.baseURL = `${apiUrl}`;

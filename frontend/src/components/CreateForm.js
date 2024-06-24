@@ -1,40 +1,59 @@
 import React from 'react';
 import notesStore from '../stores/notesStore';
+import { Flex, Input, Button, ConfigProvider, theme } from 'antd';
+import { useTheme } from '../context/ThemeProvider';
+
+
+const {TextArea} = Input
 
 function CreateForm({ closeModal }) {
     const store = notesStore();
+    const {isDarkMode} = useTheme()
 
-    if (store.updateForm._id) return null; // Return null to render nothing if update form is active
+    if (store.updateForm._id) return null;
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent default form submission behavior
-
-        await store.createNote(); // Await the createNote function call
-        closeModal(); // Close the modal after note creation
+        e.preventDefault();
+        await store.createNote();
+        closeModal();
     };
 
     return (
         <div className="mt-5">
-            <h2>Create Note</h2>
-            <form className="flex flex-col gap-5 w-1/2" onSubmit={handleSubmit}>
-                <input
-                    className="border border-black"
-                    onChange={(e) => store.updateCreateFormField(e)}
-                    value={store.createForm.title}
-                    name="title"
-                    placeholder="Enter title"
+            
+            <form onSubmit={handleSubmit}>
+            <ConfigProvider
+            theme={{
+                algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
+            }}
+            >
+            <Flex vertical gap={32}>
+                <Input showCount allowClear maxLength={50} placeholder="Enter Title"
+                onChange={(e) => store.updateCreateFormField(e)}
+                value={store.createForm.title}
+                name="title"
                 />
-                <textarea
-                    className="border border-black"
-                    onChange={(e) => store.updateCreateFormField(e)}
-                    value={store.createForm.body}
-                    name="body"
-                    placeholder="Enter body"
+                <TextArea
+                onChange={(e) => store.updateCreateFormField(e)}
+                value={store.createForm.body}
+                name="body"
+                showCount
+                allowClear
+                variant='filled'
+                placeholder="Enter Description"
+                style={{
+                    height: 200,
+                    resize: 'none',
+                }}
                 />
-                <button type="submit" className="border border-black">
+                
+                <Button type="primary" shape='round' htmlType='submit' >
                     Create note
-                </button>
+                </Button>
+            </Flex>
+        </ConfigProvider>
             </form>
+            
         </div>
     );
 }

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Unbounded:wght@200..900&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +14,9 @@ transition: background-color 0.3s;
     background: linear-gradient(135deg, #17ead9, #6078ea);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.gradient-bg {
+  background: linear-gradient(135deg, #17ead9, #6078ea);
 }
 
 .card-hover {
@@ -41,4 +47,60 @@ backdrop-filter: blur( 1px );
     background-color: #424242 !important;
      color: rgb(209 213 219) !important;
   }
+/* Add the following CSS to your stylesheet */
 
+.fancy {
+  --offset: 1.5px;
+  border-radius: 50px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Conic gradient */
+.fancy::before { 
+  content: '';
+  background: conic-gradient(transparent 270deg, black, transparent);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  width: 100%;
+  animation: rotate 2s linear infinite;
+}
+/* Dark mode conic gradient */
+.dark .fancy::before {
+    background: conic-gradient(transparent 270deg, white, transparent);
+  }
+
+/* Overlay */
+.fancy::after {
+  content: '';
+  background: inherit;
+  border-radius: inherit;
+  position: absolute;
+  inset: var(--offset);
+  height: calc(100% - 2 * var(--offset));
+  width: calc(100% - 2 * var(--offset));
+}
+
+.fancy-button {
+  background: transparent;
+  position: relative;
+  z-index: 10;
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) scale(1.4) rotate(0turn);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.4) rotate(1turn);
+  }
+}

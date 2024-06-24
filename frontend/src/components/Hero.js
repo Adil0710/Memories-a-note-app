@@ -1,0 +1,151 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRightOutlined } from '@ant-design/icons';
+import { Button, ConfigProvider, theme } from 'antd';
+import { useTheme } from '../context/ThemeProvider';
+import { TinyColor } from '@ctrl/tinycolor';
+import { gsap, CSSPlugin, Expo } from 'gsap';
+import { useAnimation } from '../context/AnimationContext';
+import { useNavbarVisibility } from '../context/NavbarVisibilityContext'; // Import the context
+gsap.registerPlugin(CSSPlugin);
+
+const colors1 = ['#6253E1', '#04BEFE'];
+
+const getHoverColors = (colors) =>
+  colors.map((color) => new TinyColor(color).lighten(5).toString());
+
+const getActiveColors = (colors) =>
+  colors.map((color) => new TinyColor(color).darken(5).toString());
+
+function Hero() { // Remove setIsNavbarVisible from props
+  const { isDarkMode } = useTheme();
+  const [counter, setCounter] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const { hasAnimated, markAsAnimated } = useAnimation();
+  const { setIsNavbarVisible } = useNavbarVisibility(); // Destructure the setIsNavbarVisible function
+  let count;
+
+  useEffect(() => {
+    const startAnimation = () => {
+      const t1 = gsap.timeline({
+        onComplete: () => {
+          setIsLoading(false);
+          setIsNavbarVisible(true);
+          markAsAnimated();
+        }
+      });
+      t1.to(".follow", {
+        width: "100%",
+        duration: 1,
+        delay: 0.3,
+        ease: Expo.easeInOut,
+      }).to(".hide", {
+        opacity: 0,
+        duration: 0.3
+      }).to(".hide", {
+        display: "none",
+        duration: 0.2
+      }).to(".follow", {
+        height: "100%",
+        duration: 0.5,
+        delay: 0.3,
+        ease: Expo.easeInOut,
+      }).to(".follow", {
+        zIndex: 0,
+      }).to(".loading", {
+        zIndex: 0,
+        opacity: 0,
+        duration: 0.3,
+      }).from(".main", {
+        opacity: 0,
+        scale: 0.2,
+        duration: 0.5,
+        ease: Expo.easeOut,
+      }).from(".navbr",{
+        y: -500,
+        duration:0.5,
+        opacity: 0,
+        scale: 0.2,
+        ease: Expo.easeInOut
+      }).from(".adil",{
+        y: 500,
+        duration:1,
+        opacity: 0,
+        ease: Expo.easeInOut
+      })
+    };
+
+    if (!hasAnimated) {
+      count = setInterval(() => {
+        setCounter((counter) =>
+          counter < 100
+            ? counter + 1
+            : (clearInterval(count), setCounter(100), startAnimation())
+        );
+      }, 15);
+    } else {
+      setIsLoading(false);
+      setIsNavbarVisible(true);
+    }
+
+    return () => clearInterval(count);
+
+  }, [hasAnimated, setIsNavbarVisible, markAsAnimated]);
+
+  useEffect(() => {
+    return () => {
+      clearInterval(count);
+    };
+  }, []);
+
+  return (
+    <div className='min-h-screen w-full flex flex-col items-center relative justify-center'>
+      {isLoading && !hasAnimated && (
+        <div className='loading w-screen h-full bg-black dark:bg-white flex items-center justify-center absolute z-20 top-0'>
+          <div className='follow absolute bg-white dark:bg-[#0b0b0b] h-[3px] w-[0] left-0 z-30'></div>
+          <div className='hide absolute left-0 h-[3px] gradient-bg transition delay-500 ease-out' style={{ width: counter + "%" }}></div>
+          <div className='hide'><p className='lg:text-9xl md:text-9xl text-7xl absolute text-white dark:text-black font-semibold md:translate-y-6 translate-y-7 lg:translate-y-4'>{counter}%</p></div>
+        </div>
+      )}
+
+      <div className={`main w-full flex flex-col items-center justify-center`}>
+        <div className='w-full flex flex-col justify-center items-center lg:mt-10 -mt-10'>
+          <h1 className=' text-center font-semibold text-2xl lg:text-6xl sm:text-4xl font-[unbounded] lg:leading-normal leading-normal lg:tracking-wide dark:text-white dark:opacity-90'>
+            Capture Your Thoughts <br /> Cherish Your <span className='adil gradient-text'>Memories <i className="ri-sparkling-2-fill gradient-text"></i></span>
+          </h1>
+
+          <p className='text-center text-sm lg:text-lg sm:text-sm lg:px-10 mt-10 text-black opacity-60 dark:text-white dark:text-opacity-60'>
+            Memories is your personal digital notebook, designed to help you capture and organize your thoughts effortlessly. Keep track of important ideas, daily reflections, and cherished moments all in one place, accessible anytime, anywhere.
+          </p>
+        </div>
+
+        <div className='flex flex-row-reverse items-center justify-center gap-5 mt-20'>
+          <Link to="/signup">
+            <div className="fancy bg-[#f1f1f1] dark:bg-[#000] border border-gray-300 dark:border-[#242424]">
+              <button className="fancy-button font-semibold text-black dark:text-white px-5 py-2">
+                Get started &nbsp; <ArrowRightOutlined />
+              </button>
+            </div>
+          </Link>
+          <ConfigProvider
+            theme={{
+              algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
+              components: {
+                Button: {
+                  colorPrimary: `linear-gradient(135deg, ${colors1.join(', ')})`,
+                  colorPrimaryHover: `linear-gradient(135deg, ${getHoverColors(colors1).join(', ')})`,
+                  colorPrimaryActive: `linear-gradient(135deg, ${getActiveColors(colors1).join(', ')})`,
+                  lineWidth: 0,
+                },
+              },
+            }}
+          >
+            <Button type='primary' shape='round' size='large'><Link to="/login" className='font-semibold'>Log In</Link></Button>
+          </ConfigProvider>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Hero;

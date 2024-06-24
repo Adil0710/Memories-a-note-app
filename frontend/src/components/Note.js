@@ -100,10 +100,10 @@ function Note({ note }) {
                 onCancel={hideModal}
                 footer={[
                     <div className='flex items-center justify-between mt-2'>
-                        <Button key="download" type='primary' icon={<DownloadOutlined />} size='small' onClick={downloadNote}>
+                        <Button key="download" shape='round' type='primary' icon={<DownloadOutlined />} size='small' onClick={downloadNote}>
                             Download Note
                         </Button>
-                        <Button key="close" size='small' shape='rounded' danger onClick={hideModal}>
+                        <Button key="close" size='small' shape='round' danger onClick={hideModal}>
                             Close
                         </Button>
                     </div>

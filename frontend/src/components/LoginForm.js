@@ -18,7 +18,7 @@ function LoginForm() {
 
   const handleLogin = async (values) => {
     await store.login();
-    navigate('/');
+    navigate('/notes');
   };
 
   const handleChange = (e) => {

@@ -1,9 +1,14 @@
 // UpdateForm.js
 import React from 'react';
 import notesStore from '../stores/notesStore';
+import { Flex, Input, Button, ConfigProvider, theme } from 'antd';
+import { useTheme } from '../context/ThemeProvider';
+
+const {TextArea} = Input
 
 function UpdateForm() {
     const store = notesStore();
+    const {isDarkMode} = useTheme()
 
     if (!store.updateForm._id) return null;
 
@@ -14,23 +19,39 @@ function UpdateForm() {
 
     return (
         <div className="mt-5">
-            <h2>Update Note</h2>
-            <form className="flex flex-col gap-5 w-1/2" onSubmit={handleUpdate}>
-                <input
-                    className="border border-black"
-                    onChange={store.handleUpdateFieldChange}
-                    value={store.updateForm.title}
-                    name="title"
+    
+            <form onSubmit={handleUpdate}>
+            <ConfigProvider
+            theme={{
+                algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
+            }}
+            >
+            <Flex vertical gap={32}>
+            <Input showCount allowClear maxLength={50} placeholder="Enter Title"
+                onChange={store.handleUpdateFieldChange}
+                value={store.updateForm.title}
+                name="title"
                 />
-                <textarea
-                    className="border border-black"
-                    onChange={store.handleUpdateFieldChange}
-                    value={store.updateForm.body}
-                    name="body"
+                
+                <TextArea
+                onChange={store.handleUpdateFieldChange}
+                value={store.updateForm.body}
+                name="body"
+                showCount
+                allowClear
+                variant='filled'
+                placeholder="Enter Description"
+                style={{
+                    height: 200,
+                    resize: 'none',
+                }}
                 />
-                <button type="submit" className="border border-black">
+                
+                <Button type="primary" shape='round' htmlType='submit' >
                     Update note
-                </button>
+                </Button>
+            </Flex>
+        </ConfigProvider>
             </form>
         </div>
     );
