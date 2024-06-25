@@ -37,7 +37,7 @@ const NavBar = ({ toggleSidebar }) => {
                   algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
                 }}
               >
-                <Button size="small" shape='round'><Link to="/home">Home</Link></Button>
+                <Button size="small" shape='round'><Link to="/">Home</Link></Button>
                 <Divider type='vertical' />
                 <Button size="small" shape='round'><Link to="/contactus">Contact us</Link></Button>
                 <Divider type='vertical' />
@@ -71,7 +71,7 @@ const NavBar = ({ toggleSidebar }) => {
                 <Divider type='vertical' />
                 <Button size="small" shape='round'><Link to="/">Home</Link></Button>
                 <Divider type='vertical' />
-                <Button size="small" shape='round'><Link to="/">Notes</Link></Button>
+                <Button size="small" shape='round'><Link to="/notes">Notes</Link></Button>
                 <Divider type='vertical' />
                 <Button size="small" shape='round'><Link to="/contactus">Contact us</Link></Button>
                 <Divider type='vertical' />
