@@ -17,8 +17,11 @@ function LoginForm() {
   const {isDarkMode} = useTheme()
 
   const handleLogin = async (values) => {
-    await store.login();
-    navigate('/notes');
+
+    const success = await store.login();
+    if (success){
+      navigate('/notes');
+    }
   };
 
   const handleChange = (e) => {

@@ -57,9 +57,10 @@ const authStore = create((set) => ({
         })
             // toast.success(`${res.data.user}, ${res.data.msg}`);
             console.log(res);
+            return true
         } catch (error) {
             console.log(error)
-            
+            return false
         }
     },
 
