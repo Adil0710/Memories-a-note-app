@@ -32,7 +32,7 @@ function App() {
             <NavBar toggleSidebar={toggleSidebar} />
             <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route index element={<HomePage />} />
               <Route path="/notes" element={<RequireAuth><NotesPage /></RequireAuth>} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
