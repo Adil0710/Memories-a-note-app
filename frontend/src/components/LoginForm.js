@@ -17,13 +17,8 @@ function LoginForm() {
   const {isDarkMode} = useTheme()
 
   const handleLogin = async (values) => {
-    try {
-      await store.login();
-      navigate('/notes');
-    } catch (error) {
-      console.log("Error while logging in" , error);
-      navigate('/login');
-    }
+    await store.login();
+    navigate('/');
   };
 
   const handleChange = (e) => {
