@@ -1,13 +1,15 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import { useAnimation } from '../context/AnimationContext';
+import HowWorks from '../components/HowWorks';
 
 function HomePage() {
   const { hasAnimated, markAsAnimated } = useAnimation();
 
   return (
-    <div className='lg:px-19 sm:px-10 px-2'>
+    <div className=' w-full h-full'>
       <Hero hasAnimated={hasAnimated} markAsAnimated={markAsAnimated} />
+      {hasAnimated && <HowWorks />} {/* Render HowWorks only after animation */}
     </div>
   );
 }

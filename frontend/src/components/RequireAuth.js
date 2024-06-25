@@ -16,7 +16,7 @@ function RequireAuth(props) {
   }
 
   if(store.loggedIn === false) {
-    return <Navigate to='/' />
+    return <Navigate to='/login' />
   }
 
   return (
