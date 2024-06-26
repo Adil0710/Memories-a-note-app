@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTheme } from '../context/ThemeProvider';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
@@ -7,15 +7,37 @@ import dark from '../assets/dark.png'
 import light from '../assets/light.png'
 import { ConfigProvider, Timeline, theme } from 'antd'
 import { SmileOutlined } from '@ant-design/icons';
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { gsap, CSSPlugin, Expo } from 'gsap';
+gsap.registerPlugin(CSSPlugin, ScrollTrigger);
 
 function HowWorks() {
   const {isDarkMode} = useTheme()
+  useEffect(() => {
+    
+    gsap.from(".subtitle p", {
+      y: 50,
+      duration: 0.7,
+      stagger:0.5,
+      delay:0.5,
+      opacity: 0,
+      ease: Expo.easeInOut,
+      scrollTrigger: {
+        trigger: ".subtitle",
+        start: "top 80%", // animation starts when the top of the element hits 80% of the viewport height
+        end: "top 60%",
+        toggleActions: "play none none none", // play the animation on scroll
+        scrub: 1
+      }
+    });
+  },[]);
+    
   return (
     <div className='bg-gray-50 w-full dark:bg-black min-h-screen lg:px-19 sm:px-10 px-2'>
      
-      <h1 className=' font-[Prompt] dark:text-white opacity-80 text-4xl font-medium text-center capitalize pt-24 pb-5'>How it works?</h1>
+      <h1 className='subtitle font-[Prompt] dark:text-white opacity-80 flex flex-row items-center justify-center text-4xl font-medium text-center capitalize pt-24 pb-5'><p className=' mx-2'>How</p><p className=' mx-2'>it</p> <p className=' mx-2'>works?</p></h1>
 
-     <div className='timeline w-full py-20 lg:px-24 xl:px-34'>
+     <div className='timeline w-full py-20 sm:pb-52 pb-40 lg:px-24 xl:px-34'>
         <VerticalTimeline>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"

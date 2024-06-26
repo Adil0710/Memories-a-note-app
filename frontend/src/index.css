@@ -93,6 +93,10 @@ backdrop-filter: blur( 1px );
   position: relative;
   z-index: 10;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
   cursor: pointer;
 }
 
@@ -114,4 +118,7 @@ backdrop-filter: blur( 1px );
 }
 .dark .timeline{
   --line-color: #8b8b8b;
+}
+.shadow {
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
 }

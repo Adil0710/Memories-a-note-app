@@ -39,7 +39,7 @@ const NavBar = ({ toggleSidebar }) => {
               >
                 <Button size="small" shape='round' className='group overflow-hidden'><Link to="/"><div className=' flex flex-col'><span className=' mt-5 group-hover:-mt-6 transition-all'>Home</span><span className=''>Home</span></div></Link></Button>
                 <Divider type='vertical' />
-                <Button size="small" shape='round'><Link to="/contactus">Contact us</Link></Button>
+                <Button size="small" shape='round'><Link to="#conatct">Contact us</Link></Button>
                 <Divider type='vertical' />
                 <Button size="small" shape='round'><Link to="/signup">Sign up</Link></Button>
                 <Divider type='vertical' />

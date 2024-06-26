@@ -5,6 +5,7 @@ import { Button, ConfigProvider, theme } from 'antd';
 import { useTheme } from '../context/ThemeProvider';
 import { TinyColor } from '@ctrl/tinycolor';
 import { gsap, CSSPlugin, Expo } from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import { useAnimation } from '../context/AnimationContext';
 import { useNavbarVisibility } from '../context/NavbarVisibilityContext'; // Import the context
 gsap.registerPlugin(CSSPlugin);
