@@ -111,7 +111,9 @@ function Hero() { // Remove setIsNavbarVisible from props
           <div className='hide'><p className='lg:text-9xl md:text-9xl text-7xl absolute text-white dark:text-black font-semibold md:translate-y-6 translate-y-7 lg:translate-y-4'>{counter}%</p></div>
         </div>
       )}
-    
+      <div className="bg-[#fbe2e3] absolute top-[-6rem] right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-inherit"></div>
+        <div className="bg-[#dbd7fb] absolute top-[-1rem] left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-inherit"></div>
+
       <div className={`main w-full flex flex-col items-center justify-center`}>
         <div className='w-full flex flex-col justify-center items-center lg:mt-14 -mt-10'>
           <h1 className=' text-center font-semibold text-2xl lg:text-6xl sm:text-4xl font-[unbounded] lg:leading-tight leading-normal md:leading-normal lg:tracking-wide dark:text-white dark:opacity-90'>
@@ -125,9 +127,9 @@ function Hero() { // Remove setIsNavbarVisible from props
 
         <div className='flex flex-row-reverse items-center justify-center gap-5 mt-20'>
           <Link to="/signup">
-            <div className="fancy bg-[#f1f1f1] dark:bg-[#000] border border-gray-300 dark:border-[#242424] specialBtn">
+            <div className="fancy group bg-[#f1f1f1] dark:bg-[#000] border border-gray-300 dark:border-[#242424] specialBtn">
               <button className="fancy-button font-semibold text-black dark:text-white px-5 py-2">
-                Get started &nbsp; <ArrowRightOutlined />
+                Get started <ArrowRightOutlined className=' ml-1 transition-all group-hover:translate-x-1' />
               </button>
             </div>
           </Link>
@@ -158,3 +160,7 @@ function Hero() { // Remove setIsNavbarVisible from props
 }
 
 export default Hero;
+
+
+{/* <div className="bg-[#fbe2e3] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]"></div>
+        <div className="bg-[#dbd7fb] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]"></div> */}

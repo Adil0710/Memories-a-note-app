@@ -1,11 +1,213 @@
 import React from 'react'
+import { useTheme } from '../context/ThemeProvider';
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import { RiNumber1, RiNumber2, RiNumber3, RiNumber4 } from "react-icons/ri";
+import dark from '../assets/dark.png'
+import light from '../assets/light.png'
+import { ConfigProvider, Timeline, theme } from 'antd'
+import { SmileOutlined } from '@ant-design/icons';
 
 function HowWorks() {
+  const {isDarkMode} = useTheme()
   return (
-    <div className=' min-h-screen bg-white dark:bg-black lg:px-19 sm:px-10 px-2'>
-      adil
+    <div className='bg-gray-50 w-full dark:bg-black min-h-screen lg:px-19 sm:px-10 px-2'>
+     
+      <h1 className=' font-[Prompt] dark:text-white opacity-80 text-4xl font-medium text-center capitalize pt-24 pb-5'>How it works?</h1>
+
+     <div className='timeline w-full py-20 lg:px-24 xl:px-34'>
+        <VerticalTimeline>
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{
+              background: `${isDarkMode ? '#141414' : '#f3f4f6'}`,
+              color: `${isDarkMode ? '#fff' : 'black'}`,
+              boxShadow: "none",
+              border: "1px solid rgba(0, 0, 0, 0.10)",
+              padding: '2rem 2rem',
+              boxShadow: `${isDarkMode ? 'none' : "0 5px 12px rgba(0, 0, 0, 0.15)"}`,
+            }}
+            contentArrowStyle={{ borderRight: '0.4rem solid #9ca3af' }}
+            date={
+              <div
+                style={{
+                  boxShadow: `${isDarkMode ? 'none' : "0 5px 12px rgba(0, 0, 0, 0.15)"}`,
+                  borderRadius: "5px",
+                  overflow: "hidden",
+                  width: "95%",
+                }}
+              >
+                <img style={{ objectFit: "cover" }} src={`${isDarkMode ? dark : light}`} />
+              </div>
+            }
+            iconStyle={{
+              background: `${isDarkMode ? '#141414' : 'white'}`,
+              color: `${isDarkMode ? 'white' : '#404040'}`,
+              fontSize: "1.5rem",
+            }}
+            icon={<RiNumber1 />}
+          > <h2 className=' font-bold text-4xl dark:text-gray-300 '>Step 1</h2>
+            <h3 className="font-semibold !mt-2">Sign Up or Login</h3>
+            <p className='!mt-4 !font-normal text-gray-700 dark:text-gray-300'>
+              You can sign up by filling your details or if you're already signed up you can simply log in to your existing account with your credentials.
+            </p>
+          </VerticalTimelineElement>
+
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{
+              background: `${isDarkMode ? '#141414' : '#f3f4f6'}`,
+              color: `${isDarkMode ? '#fff' : 'black'}`,
+              boxShadow: "none",
+              border: "1px solid rgba(0, 0, 0, 0.10)",
+              padding: '2rem 2rem',
+              boxShadow: `${isDarkMode ? 'none' : "0 5px 12px rgba(0, 0, 0, 0.15)"}`,
+            }}
+            contentArrowStyle={{ borderRight: '0.4rem solid #9ca3af' }}
+            date={
+              <div
+                style={{
+                  boxShadow: `${isDarkMode ? 'none' : "0 5px 12px rgba(0, 0, 0, 0.15)"}`,
+                  borderRadius: "5px",
+                  overflow: "hidden",
+                  width: "95%",
+                }}
+              >
+                <img style={{ objectFit: "cover" }} src={`${isDarkMode ? dark : light}`} />
+              </div>
+            }
+            iconStyle={{
+              background: `${isDarkMode ? '#141414' : 'white'}`,
+              color: `${isDarkMode ? 'white' : '#404040'}`,
+              fontSize: "1.5rem",
+            }}
+            icon={<RiNumber2 />}
+          >
+            <h2 className=' font-bold text-4xl dark:text-gray-300 '>Step 2</h2>
+            <h3 className="font-semibold !mt-2">Create and Organize</h3>
+            <p className='!mt-4 !font-normal text-gray-700 dark:text-gray-300'>
+              Click the "Create Note" or "+" button and start jotting down your thoughts with our user friendly interface and organize your thoughts and ideas!
+            </p>
+          </VerticalTimelineElement>
+
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{
+              background: `${isDarkMode ? '#141414' : '#f3f4f6'}`,
+              color: `${isDarkMode ? '#fff' : 'black'}`,
+              boxShadow: "none",
+              border: "1px solid rgba(0, 0, 0, 0.10)",
+              padding: '2rem 2rem',
+              boxShadow: `${isDarkMode ? 'none' : "0 5px 12px rgba(0, 0, 0, 0.15)"}`,
+            }}
+            contentArrowStyle={{ borderRight: '0.4rem solid #9ca3af' }}
+            date={
+              <div
+                style={{
+                  boxShadow: `${isDarkMode ? 'none' : "0 5px 12px rgba(0, 0, 0, 0.15)"}`,
+                  borderRadius: "5px",
+                  overflow: "hidden",
+                  width: "95%",
+                }}
+              >
+                <img style={{ objectFit: "cover" }} src={`${isDarkMode ? dark : light}`} />
+              </div>
+            }
+            iconStyle={{
+              background: `${isDarkMode ? '#141414' : 'white'}`,
+              color: `${isDarkMode ? 'white' : '#404040'}`,
+              fontSize: "1.5rem",
+            }}
+            icon={<RiNumber3 />}
+          >
+            <h2 className=' font-bold text-4xl dark:text-gray-300 '>Step 3</h2>
+            <h3 className="font-semibold !mt-2">Access anywhere and Download</h3>
+            <p className='!mt-4 !font-normal text-gray-700 dark:text-gray-300'>
+              Access your notes on any device by just logging in into your account & you can access it anytime & anywhere, You can also download your notes in text format.
+            </p>
+          </VerticalTimelineElement>
+
+      </VerticalTimeline>
+</div>
+
+    
     </div>
   )
 }
 
 export default HowWorks
+
+
+{/* <div className=' relative px-10 -top-10'>
+        <img src={`${isDarkMode ? dark : light}`} className=' w-full rounded-xl h-full'/>
+      </div> */}
+
+
+
+
+{/* <div>
+        <ConfigProvider
+        theme={{
+            algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
+        }}
+        >
+            <Timeline
+                mode='alternate'
+              items={[
+                {
+                  color: 'green',
+                  children: 'Create a services site 2015-09-01',
+                },
+                {
+                  color: 'green',
+                  children: 'Create a services site 2015-09-01',
+                },
+                {
+                  color: 'red',
+                  children: (
+                    <>
+                      <p>Solve initial network problems 1</p>
+                      <p>Solve initial network problems 2</p>
+                      <p>Solve initial network problems 3 2015-09-01</p>
+                    </>
+                  ),
+                },
+                {
+                  children: (
+                    <>
+                      <p>Technical testing 1</p>
+                      <p>Technical testing 2</p>
+                      <p>Technical testing 3 2015-09-01</p>
+                    </>
+                  ),
+                },
+                {
+                  color: 'gray',
+                  children: (
+                    <>
+                      <p>Technical testing 1</p>
+                      <p>Technical testing 2</p>
+                      <p>Technical testing 3 2015-09-01</p>
+                    </>
+                  ),
+                },
+                {
+                  color: 'gray',
+                  children: (
+                    <>
+                      <p>Technical testing 1</p>
+                      <p>Technical testing 2</p>
+                      <p>Technical testing 3 2015-09-01</p>
+                    </>
+                  ),
+                },
+                {
+                  color: '#00CCFF',
+                  dot: <SmileOutlined />,
+                  children: <p>Custom color testing</p>,
+                },
+              ]}
+
+            />
+        </ConfigProvider>
+      </div> */}

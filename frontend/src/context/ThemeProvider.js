@@ -16,8 +16,13 @@ export const ThemeProvider = ({ children }) => {
     // Initialize theme mode based on localStorage on component mount
     useEffect(() => {
         const storedTheme = localStorage.getItem('isDarkMode');
-        const initialMode = storedTheme === 'true';
+        let initialMode = null
+        if (storedTheme){
+        initialMode = storedTheme === 'true';
         setIsDarkMode(initialMode);
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches){
+            setIsDarkMode(true)
+        }
         document.documentElement.classList.toggle('dark', initialMode); // Set the class on mount
         setIsLoaded(true); // Set loading state to true after initial theme is set
     }, []);

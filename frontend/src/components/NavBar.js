@@ -37,7 +37,7 @@ const NavBar = ({ toggleSidebar }) => {
                   algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
                 }}
               >
-                <Button size="small" shape='round'><Link to="/">Home</Link></Button>
+                <Button size="small" shape='round' className='group overflow-hidden'><Link to="/"><div className=' flex flex-col'><span className=' mt-5 group-hover:-mt-6 transition-all'>Home</span><span className=''>Home</span></div></Link></Button>
                 <Divider type='vertical' />
                 <Button size="small" shape='round'><Link to="/contactus">Contact us</Link></Button>
                 <Divider type='vertical' />

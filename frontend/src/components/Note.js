@@ -56,7 +56,7 @@ function Note({ note }) {
                 algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
             }}
         >
-        <Card className=' card-hoverd card-hover'
+        <Card className='card card-hoverd card-hover'
             style={{ width: 300, margin: '5px' }}
             actions={[
                 <Popconfirm
