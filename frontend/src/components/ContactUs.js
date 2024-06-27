@@ -27,7 +27,7 @@ function ContactUs() {
           ease: Expo.easeInOut,
           scrollTrigger: {
             trigger: ".contact",
-            start: "top 0%", // animation starts when the top of the element hits 80% of the viewport height
+            start: "top 50%", // animation starts when the top of the element hits 80% of the viewport height
             end: "top 60%",
             toggleActions: "play none none none", // play the animation on scroll
             scrub: 1,
@@ -38,7 +38,7 @@ function ContactUs() {
       },[]);
 
   return (
-    <div className='bg-gray-50 dark:bg-[#090909] w-full sm:min-h-screen lg:px-19 sm:px-10 px-2'>
+    <div className='bg-gray-50 dark:bg-[#090909] min-h-[80vh] w-full sm:min-h-screen lg:px-19 sm:px-10 px-2'>
       
         
       <ConfigProvider
