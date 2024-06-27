@@ -31,6 +31,7 @@ function UpdateForm() {
                 onChange={store.handleUpdateFieldChange}
                 value={store.updateForm.title}
                 name="title"
+                variant='filled'
                 />
                 
                 <TextArea

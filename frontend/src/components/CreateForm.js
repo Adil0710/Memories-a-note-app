@@ -32,6 +32,7 @@ function CreateForm({ closeModal }) {
                 onChange={(e) => store.updateCreateFormField(e)}
                 value={store.createForm.title}
                 name="title"
+                variant='filled'
                 />
                 <TextArea
                 onChange={(e) => store.updateCreateFormField(e)}
