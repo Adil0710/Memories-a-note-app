@@ -7,7 +7,7 @@ import { FaGithub, FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 function Footer() {
   const {isDarkMode} = useTheme()
   return (
-    <footer className=" bg-gray-100 dark:bg-[#0b0b0b] py-6 text-center lg:px-19 sm:px-10 px-2  text-[#494949] dark:text-white dark:text-opacity-60">
+    <footer className=" bg-gray-100 dark:bg-[#050505] py-6 text-center lg:px-19 sm:px-10 px-2  text-[#494949] dark:text-white dark:text-opacity-60">
       <ConfigProvider
           theme={{
           algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
