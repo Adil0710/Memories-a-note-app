@@ -96,7 +96,7 @@ function Notes() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center bg-gray-100 dark:bg-[#0b0b0b] min-h-screen pt-28 pb-20">
+        <div className="flex flex-col items-center justify-center bg-gray-50 dark:bg-[#0b0b0b] min-h-screen pt-28 pb-20">
             <div className="w-full max-w-2xl px-4 mb-4">
             <ConfigProvider
                 theme={{

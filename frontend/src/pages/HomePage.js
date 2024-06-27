@@ -3,6 +3,8 @@ import Hero from '../components/Hero';
 import { useAnimation } from '../context/AnimationContext';
 import HowWorks from '../components/HowWorks';
 import ContactUs from '../components/ContactUs';
+import FreeToUse from '../components/FreeToUse';
+import Footer from '../components/Footer';
 
 function HomePage() {
   const { hasAnimated, markAsAnimated } = useAnimation();
@@ -16,7 +18,9 @@ function HomePage() {
       {hasAnimated && 
       <>
       <HowWorks />
+      <FreeToUse />
       <ContactUs/>
+      <Footer/>
       </>
       } 
     </div>

@@ -32,6 +32,9 @@ function UpdateForm() {
                 value={store.updateForm.title}
                 name="title"
                 variant='filled'
+                required= "true"
+                message= 'Please enter your message!'
+
                 />
                 
                 <TextArea
@@ -42,6 +45,7 @@ function UpdateForm() {
                 allowClear
                 variant='filled'
                 placeholder="Enter Description"
+                required= "true"
                 style={{
                     height: 200,
                     resize: 'none',

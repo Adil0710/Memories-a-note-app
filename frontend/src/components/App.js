@@ -26,7 +26,7 @@ function App() {
 
   return (
     <NavbarVisibilityProvider>
-      <div className={`App ${isDarkMode ? 'dark' : ''} bg-gray-100 dark:bg-[#0b0b0b] min-h-screen w-full drk dark:drk`}>
+      <div className={`App ${isDarkMode ? 'dark' : ''} bg-gray-50 dark:bg-[#0b0b0b] min-h-screen w-full drk dark:drk`}>
         <AnimationProvider>
           <BrowserRouter>
             <NavBar toggleSidebar={toggleSidebar} />

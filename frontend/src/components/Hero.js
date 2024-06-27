@@ -59,8 +59,8 @@ function Hero() { // Remove setIsNavbarVisible from props
         opacity: 0,
         duration: 0.3,
       }).from(".main", {
-        opacity: 0,
-        scale: 0.2,
+        opacity: 0.5,
+        scale: 0.4,
         duration: 0.5,
         ease: Expo.easeOut,
       }).from(".title",{
@@ -117,7 +117,7 @@ function Hero() { // Remove setIsNavbarVisible from props
 
       <div className={`main w-full flex flex-col items-center justify-center`}>
         <div className='w-full flex flex-col justify-center items-center lg:mt-14 -mt-10'>
-          <h1 className=' text-center font-semibold text-2xl lg:text-6xl sm:text-4xl font-[unbounded] lg:leading-tight leading-normal md:leading-normal lg:tracking-wide dark:text-white dark:opacity-90'>
+          <h1 className=' z-10 text-center font-semibold text-2xl lg:text-6xl sm:text-4xl font-[unbounded] lg:leading-tight leading-normal md:leading-normal lg:tracking-wide dark:text-white dark:opacity-90'>
             Capture Your Thoughts <br /> Cherish Your <p className='title gradient-text blueShadow'>Memories <i className="ri-sparkling-2-fill gradient-text"></i></p>
           </h1>
 

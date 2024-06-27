@@ -7,6 +7,7 @@ import { Button, Modal, Tooltip, ConfigProvider, theme } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
 import { useTheme } from '../context/ThemeProvider';
+import Footer from '../components/Footer';
 
 
 const colors1 = ['#6253E1', '#04BEFE'];
@@ -89,7 +90,10 @@ function NotesPage() {
                 </Tooltip>
             </ConfigProvider>
             )}
+
+                <Footer/>
              </div>
+             
     );
 }
 

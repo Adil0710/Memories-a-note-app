@@ -1,7 +1,5 @@
-import dark from "../assets/dark.png"
-import light from "../assets/light.png"
 import { useTheme } from '../context/ThemeProvider';
-import { Button,Form, Input, theme, ConfigProvider, Space, Divider, } from 'antd';
+import { Form, Input, theme, ConfigProvider, Space, Divider, } from 'antd';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
 import React, { useEffect } from 'react'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
@@ -36,35 +34,20 @@ function ContactUs() {
           }
         });
 
-        gsap.from(".container img", {
-            y: 200,
-            duration: 0.8,
-            delay: 0.5,
-            opacity: 0,
-            ease: Expo.easeInOut,
-            scrollTrigger: {
-              trigger: ".container",
-              start: "top 105%", // animation starts when the top of the element hits 80% of the viewport height
-              end: "top 20%",
-              toggleActions: "play none none none", // play the animation on scroll
-              scrub: 1,
-            }
-          });
+        
       },[]);
 
   return (
-    <div className='bg-white w-full dark:bg-[#0b0b0b] min-h-screen lg:px-19 sm:px-10 px-2'>
-        <div className='container relative px-10 flex items-center justify-center -top-20'>
-        <img src={`${isDarkMode ? dark : light}`} className=' sm:w-[80%] rounded-xl sm:h-[90%] w-full h-full shadow'/>
-      </div>
-
+    <div className='bg-gray-50 dark:bg-[#090909] w-full sm:min-h-screen lg:px-19 sm:px-10 px-2'>
+      
+        
       <ConfigProvider
             theme={{
                 algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
             }}
             componentSize="full"
         >
-            <Divider/>
+
         <h1 className='contact font-[Prompt] dark:text-white opacity-80 flex flex-row items-center justify-center text-4xl font-medium text-center capitalize pt-14 pb-5'><p className=' mx-2'>Contact</p><p className=' mx-2'>us</p></h1>
 
       
