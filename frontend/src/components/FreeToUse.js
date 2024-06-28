@@ -21,10 +21,10 @@ function FreeToUse() {
             ease: Expo.easeInOut,
             scrollTrigger: {
               trigger: ".container",
-              start: "top 105%", // animation starts when the top of the element hits 80% of the viewport height
+              start: "top 80%", // animation starts when the top of the element hits 80% of the viewport height
               end: "top 20%",
               toggleActions: "play none none none", // play the animation on scroll
-              scrub: 1,
+              scrub: 2,
             }
           });
       },[]);
