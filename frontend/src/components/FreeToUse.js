@@ -40,8 +40,8 @@ function FreeToUse() {
                 ease: Expo.easeInOut,
                 scrollTrigger: {
                     trigger: ".contact",
-                    start: "top 80%",
-                    end: "top 60%",
+                    start: "top 50%",
+                    end: "top 70%",
                     toggleActions: "play none none none",
                     scrub: 1,
                     markers: true
@@ -52,16 +52,14 @@ function FreeToUse() {
         mm.add("(min-width: 768px)", () => {
           // Animations for larger screens
           gsap.from(".card", {
-              y: 50,
-              duration: 0.7,
-              stagger: 0.5,
-              delay: 0.5,
+              scale: 0.5,
+              duration: 0.5,
               opacity: 0,
               ease: Expo.easeInOut,
               scrollTrigger: {
                   trigger: ".card",
-                  start: "top 80%",
-                  end: "top 60%",
+                  start: "top 50%",
+                  end: "top 70%",
                   toggleActions: "play none none none",
                   scrub: 1,
                   markers: true
@@ -92,10 +90,8 @@ function FreeToUse() {
         mm.add("(max-width: 767px)", () => {
           // Animations for mobile screens
           gsap.from(".card", {
-              y: 30,
+              scale: 0.5,
               duration: 0.5,
-              stagger: 0.3,
-              delay: 0.3,
               opacity: 0,
               ease: Expo.easeInOut,
               scrollTrigger: {
