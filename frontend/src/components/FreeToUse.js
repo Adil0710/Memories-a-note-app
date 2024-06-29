@@ -44,7 +44,6 @@ function FreeToUse() {
                     end: "top 70%",
                     toggleActions: "play none none none",
                     scrub: 1,
-                    markers: true
                 }
             });
         });
@@ -62,7 +61,6 @@ function FreeToUse() {
                   end: "top 60%",
                   toggleActions: "play none none none",
                   scrub: 1,
-                  markers: true
               }
           });
       });
@@ -82,7 +80,6 @@ function FreeToUse() {
                     end: "top 60%",
                     toggleActions: "play none none none",
                     scrub: 1,
-                    markers: true
                 }
             });
         });
@@ -96,7 +93,7 @@ function FreeToUse() {
               ease: Expo.easeInOut,
               scrollTrigger: {
                   trigger: ".card",
-                  start: "top 20%",
+                  start: "top 30%",
                   end: "top 60%",
                   toggleActions: "play none none none",
                   scrub: 1,
