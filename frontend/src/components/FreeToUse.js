@@ -31,7 +31,7 @@ function FreeToUse() {
 
         mm.add("(min-width: 768px)", () => {
             // Animations for larger screens
-            gsap.from(".contact p", {
+            gsap.from(".price p", {
                 y: 50,
                 duration: 0.7,
                 stagger: 0.5,
@@ -39,8 +39,8 @@ function FreeToUse() {
                 opacity: 0,
                 ease: Expo.easeInOut,
                 scrollTrigger: {
-                    trigger: ".contact",
-                    start: "top 50%",
+                    trigger: ".price",
+                    start: "top 20%",
                     end: "top 70%",
                     toggleActions: "play none none none",
                     scrub: 1,
@@ -58,8 +58,8 @@ function FreeToUse() {
               ease: Expo.easeInOut,
               scrollTrigger: {
                   trigger: ".card",
-                  start: "top 50%",
-                  end: "top 70%",
+                  start: "top 20%",
+                  end: "top 60%",
                   toggleActions: "play none none none",
                   scrub: 1,
                   markers: true
