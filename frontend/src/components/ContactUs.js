@@ -48,11 +48,10 @@ function ContactUs() {
             ease: Expo.easeInOut,
             scrollTrigger: {
                 trigger: ".contact",
-                start: "top 80%",
+                start: "top 20%",
                 end: "top 60%",
                 toggleActions: "play none none none",
                 scrub: 1,
-                markers: true
             }
         });
     });
@@ -72,7 +71,6 @@ function ContactUs() {
                 end: "top 60%",
                 toggleActions: "play none none none",
                 scrub: 1,
-                markers: true
             }
         });
     });
