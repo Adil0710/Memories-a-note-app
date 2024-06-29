@@ -1,6 +1,7 @@
 import dark from "../assets/dark.png"
 import light from "../assets/light.png"
-import { theme, ConfigProvider, Divider, } from 'antd';
+import { theme, ConfigProvider, Divider, Card } from 'antd';
+import { CheckOutlined, CrownOutlined } from '@ant-design/icons';
 import { useTheme } from '../context/ThemeProvider';
 import React, { useEffect } from 'react'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
@@ -30,7 +31,7 @@ function FreeToUse() {
       },[]);
 
   return (
-    <div className='bg-white w-full dark:bg-[#0b0b0b] min-h-screen lg:px-19 sm:px-10 px-2'>
+    <div className='bg-white w-full dark:bg-[#0b0b0b] min-h-screen lg:px-19 sm:px-10 px-2 pb-32'>
 
         <div className='container relative px-10 flex items-center justify-center -top-20'>
          <img src={`${isDarkMode ? dark : light}`} className=' sm:w-[80%] rounded-xl sm:h-[90%] w-full h-full shadow'/>
@@ -43,8 +44,43 @@ function FreeToUse() {
             componentSize="full"
         >
             <Divider/>
-        
             </ConfigProvider>
+
+            <div className="sm:px-5 flex items-center justify-center px-8 mt-20">
+
+              <Card className=" pb-5 sm:w-[50%] shadow w-full bg-gradient-to-r from-[#f1acff] to-[#81b1fa] text-black text-opacity-80"
+              >
+                <div className=" pb-10 sm:pt-6 pt-8 relative">
+                  <h2 className="text-center font-bold text-3xl">Free</h2>
+                  <h2 className="font-bold text-2xl line-through text-[#535353] absolute top-6 right-12 sm:right-[35%] sm:top-4">$10</h2>
+                  <h2 className="font-bold text-md px-2 rounded-full absolute -top-3 left-0 border border-black border-opacity-70">Premium <CrownOutlined/></h2>
+                </div>
+
+                <div className=" flex items-center w-full justify-center sm:flex-row flex-col">
+                  <div className=" sm:w-[50%] sm:h-40 sm:pr-5 text-center sm:text-left">
+                    <p className=" text-lg font-medium">Turn messy thoughts into actionable notes</p>
+                    <p className="mt-5">Write your ideas and turn you ramblings into usable content. Create unlimited notes, and access it or download it from anywhere and anytime.</p>
+                  </div>
+                  
+                  <Divider type="vertical" className="sm:flex hidden h-52" style={{borderLeft: '1px solid #757575'}} />
+                  <Divider className="flex sm:hidden text-black text-opacity-80" style={{borderTop: '1px solid #757575'}} />
+               
+                  <div className="sm:w-[50%] sm:h-40 sm:pl-10 text-center sm:text-left">
+                      <p className=" text-lg font-medium">Memories include:</p>
+                      <p className=" mt-5"><CheckOutlined/> Unlimited notes</p>
+                      <p><CheckOutlined/> Lifetime access</p>
+                      <p><CheckOutlined/> Download notes</p>
+                     
+                      <p><CheckOutlined/> Cross-Device sync</p>
+                      <p><CheckOutlined/> Modern Ui and UX</p>
+                      <p><CheckOutlined/> Secure cloud storage</p>
+                  </div>
+                </div>
+              </Card>
+
+            </div>
+        
+        
 
     </div>
   )

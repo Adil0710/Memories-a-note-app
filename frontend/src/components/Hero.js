@@ -107,9 +107,10 @@ function Hero() { // Remove setIsNavbarVisible from props
     <div className='min-h-screen w-full flex flex-col items-center lg:px-19 sm:px-10 px-2 relative justify-center'>
       {isLoading && !hasAnimated && (
         <div className='loading w-full h-full bg-black dark:bg-white flex items-center justify-center absolute z-20 top-0'>
+          <div className='hide'><p className=' russo lg:text-8xl md:text-8xl text-5xl absolute text-white text-opacity-60 sm:top-[30%] top-[40%] left-8 dark:text-opacity-80 dark:text-black'>Loading...</p></div>
           <div className='follow absolute bg-white dark:bg-[#0b0b0b] h-[3px] w-[0] left-0 z-30'></div>
           <div className='hide absolute left-0 h-[3px] gradient-bg transition delay-500 ease-out' style={{ width: counter + "%" }}></div>
-          <div className='hide'><p className='lg:text-9xl md:text-9xl text-7xl absolute text-white dark:text-black font-semibold md:translate-y-6 translate-y-7 lg:translate-y-4'>{counter}%</p></div>
+          <div className='hide'><p className=' russo lg:text-8xl md:text-8xl text-5xl absolute text-white text-opacity-60 dark:text-opacity-80 dark:text-black md:translate-y-10 translate-y-10 lg:translate-y-10 sm:right-20 right-8'>{counter}%</p></div>
         </div>
       )}
       <div className="bg-[#fbe2e3] absolute top-[-6rem] right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-inherit"></div>
@@ -122,7 +123,7 @@ function Hero() { // Remove setIsNavbarVisible from props
           </h1>
 
           <p className='text-center text-sm lg:text-lg sm:text-sm lg:px-10 mt-10 text-black opacity-60 dark:text-white dark:text-opacity-60'>
-            Memories is your personal digital notebook, designed to help you capture and organize your thoughts effortlessly. Keep track of important ideas, daily reflections, and cherished moments all in one place, accessible anytime, anywhere.
+            Memories is your personal digital notebook, designed to help you capture and organize your thoughts effortlessly. Keep track of important ideas and cherished moments all in one place, accessible anytime, anywhere.
           </p>
         </div>
 

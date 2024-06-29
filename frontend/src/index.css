@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Unbounded:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
 
 @tailwind base;
@@ -113,6 +114,10 @@ backdrop-filter: blur( 1px );
   box-shadow: 0px 14px 55px rgba(96, 165, 255, 0.35);
 }
 
+.specialBtnc {
+  box-shadow: 0px 14px 55px rgba(96, 165, 255, 0.15);
+}
+
 .timeline{
   --line-color: #e5e7eb;
 }
@@ -121,4 +126,7 @@ backdrop-filter: blur( 1px );
 }
 .shadow {
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+.russo {
+  font-family: "Russo One", sans-serif;
 }

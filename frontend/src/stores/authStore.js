@@ -48,7 +48,7 @@ const authStore = create((set) => ({
             );
 
             const res = await promise
-           
+            localStorage.setItem('userData', JSON.stringify(res.data.user)); // Save user data to localStorage
             set({loggedIn: true, loginForm:{
                 email:'',
                 password:'',
@@ -135,6 +135,7 @@ const authStore = create((set) => ({
             );
     
             const res = await promise;
+            localStorage.removeItem('userData'); // Remove user data from localStorage
             console.log(res);
             // Update state after successful logout
             set({ loggedIn: false });

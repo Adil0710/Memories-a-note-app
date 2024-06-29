@@ -2,11 +2,14 @@ import React, { useEffect } from 'react'
 import { useTheme } from '../context/ThemeProvider';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { RiNumber1, RiNumber2, RiNumber3, RiNumber4 } from "react-icons/ri";
-import dark from '../assets/dark.png'
-import light from '../assets/light.png'
-import { ConfigProvider, Timeline, theme } from 'antd'
-import { SmileOutlined } from '@ant-design/icons';
+import { RiNumber1, RiNumber2, RiNumber3 } from "react-icons/ri";
+import darkLogin from '../assets/dark-login.png'
+import darkView from '../assets/view-dark.png'
+import darkCreate from '../assets/create-dark.png'
+import lightLogin from '../assets/light-login.png'
+import lightView from '../assets/view-light.png'
+import lightCreate from '../assets/create-light.png'
+import { ConfigProvider, theme } from 'antd'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import { gsap, CSSPlugin, Expo } from 'gsap';
 gsap.registerPlugin(CSSPlugin, ScrollTrigger);
@@ -59,7 +62,7 @@ function HowWorks() {
                   width: "95%",
                 }}
               >
-                <img style={{ objectFit: "cover" }} src={`${isDarkMode ? dark : light}`} />
+                <img style={{ objectFit: "cover" }} src={`${isDarkMode ? darkLogin : lightLogin}`} />
               </div>
             }
             iconStyle={{
@@ -95,7 +98,7 @@ function HowWorks() {
                   width: "95%",
                 }}
               >
-                <img style={{ objectFit: "cover" }} src={`${isDarkMode ? dark : light}`} />
+                <img style={{ objectFit: "cover" }} src={`${isDarkMode ? darkCreate : lightCreate}`} />
               </div>
             }
             iconStyle={{
@@ -132,7 +135,7 @@ function HowWorks() {
                   width: "95%",
                 }}
               >
-                <img style={{ objectFit: "cover" }} src={`${isDarkMode ? dark : light}`} />
+                <img style={{ objectFit: "cover" }} src={`${isDarkMode ? darkView : lightView}`} />
               </div>
             }
             iconStyle={{
@@ -158,78 +161,3 @@ function HowWorks() {
 }
 
 export default HowWorks
-
-
-{/* <div className=' relative px-10 -top-10'>
-        <img src={`${isDarkMode ? dark : light}`} className=' w-full rounded-xl h-full'/>
-      </div> */}
-
-
-
-
-{/* <div>
-        <ConfigProvider
-        theme={{
-            algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
-        }}
-        >
-            <Timeline
-                mode='alternate'
-              items={[
-                {
-                  color: 'green',
-                  children: 'Create a services site 2015-09-01',
-                },
-                {
-                  color: 'green',
-                  children: 'Create a services site 2015-09-01',
-                },
-                {
-                  color: 'red',
-                  children: (
-                    <>
-                      <p>Solve initial network problems 1</p>
-                      <p>Solve initial network problems 2</p>
-                      <p>Solve initial network problems 3 2015-09-01</p>
-                    </>
-                  ),
-                },
-                {
-                  children: (
-                    <>
-                      <p>Technical testing 1</p>
-                      <p>Technical testing 2</p>
-                      <p>Technical testing 3 2015-09-01</p>
-                    </>
-                  ),
-                },
-                {
-                  color: 'gray',
-                  children: (
-                    <>
-                      <p>Technical testing 1</p>
-                      <p>Technical testing 2</p>
-                      <p>Technical testing 3 2015-09-01</p>
-                    </>
-                  ),
-                },
-                {
-                  color: 'gray',
-                  children: (
-                    <>
-                      <p>Technical testing 1</p>
-                      <p>Technical testing 2</p>
-                      <p>Technical testing 3 2015-09-01</p>
-                    </>
-                  ),
-                },
-                {
-                  color: '#00CCFF',
-                  dot: <SmileOutlined />,
-                  children: <p>Custom color testing</p>,
-                },
-              ]}
-
-            />
-        </ConfigProvider>
-      </div> */}

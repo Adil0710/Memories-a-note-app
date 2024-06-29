@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ConfigProvider, Divider, theme } from "antd";
 import { CloseOutlined, HomeOutlined, UserAddOutlined, LoginOutlined, LogoutOutlined } from '@ant-design/icons';
@@ -9,6 +9,15 @@ import { useTheme } from "../context/ThemeProvider";
 const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
   const store = authStore();
   const { isDarkMode } = useTheme();
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const storedUserData = localStorage.getItem('userData');
+    if (storedUserData) {
+      setUserData(JSON.parse(storedUserData));
+    }
+  }, [store]);
+
 
   return (
     <>
@@ -31,7 +40,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
           {!store.loggedIn ? (
             <h2 className="text-[#272727] text-lg font-bold pl-2 dark:text-gray-300">Menu</h2>
           ) : (
-            <h2 className="text-[#272727] text-lg font-bold pl-2 dark:text-gray-300">👋 Hi , {store.userData}</h2>
+            <h2 className="text-[#272727] text-lg font-bold pl-2 dark:text-gray-300">👋 Hi , {userData}</h2>
           )}
           <CloseOutlined onClick={toggleSidebar} className="text-2xl cursor-pointer text-[#272727] dark:text-gray-300 font-bold" />
         </div>

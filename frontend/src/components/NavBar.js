@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, ConfigProvider, Divider, theme } from "antd";
 import { MenuFoldOutlined } from '@ant-design/icons';
@@ -20,6 +20,14 @@ const NavBar = ({ toggleSidebar }) => {
   const store = authStore();
   const { isDarkMode } = useTheme();
   const { isNavbarVisible } = useNavbarVisibility(); // Destructure the isNavbarVisible
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const storedUserData = localStorage.getItem('userData');
+    if (storedUserData) {
+      setUserData(JSON.parse(storedUserData));
+    }
+  }, [store]);
 
   return (
     <div className={`navbr fixed w-full md:px-20 px-8 lg:px-40 z-20 pt-5 ${isNavbarVisible ? '' : 'hidden'}`}>
@@ -67,7 +75,7 @@ const NavBar = ({ toggleSidebar }) => {
                   algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
                 }}
               >
-                <p className="text-gray-500 dark:text-gray-300 sm:text-base text-xs">👋 Hi , {store.userData}</p>
+                <p className="text-gray-500 dark:text-gray-300 sm:text-base text-xs">👋 Hi , {userData}</p>
                 <Divider type='vertical' />
                 <Button size="small" shape='round'><Link to="/">Home</Link></Button>
                 <Divider type='vertical' />

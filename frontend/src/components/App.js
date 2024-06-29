@@ -13,6 +13,7 @@ import RequireAuth from './RequireAuth';
 import LocomotiveScroll from 'locomotive-scroll';
 import { AnimationProvider } from '../context/AnimationContext';
 import { NavbarVisibilityProvider } from '../context/NavbarVisibilityContext'; // Import the provider
+import PageNotFound from './PageNotFound';
 
 const locomotiveScroll = new LocomotiveScroll();
 
@@ -37,6 +38,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/logout" element={<LogoutPage />} />
+              <Route path="*" element={<PageNotFound/>} />
             </Routes>
           </BrowserRouter>
         </AnimationProvider>
