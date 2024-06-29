@@ -43,7 +43,7 @@ function ContactUs() {
             opacity: 0,
             ease: Expo.easeInOut,
             scrollTrigger: {
-                trigger: ".contact",
+                trigger: ".contact p",
                 start: "top 80%",
                 end: "top 60%",
                 toggleActions: "play none none none",

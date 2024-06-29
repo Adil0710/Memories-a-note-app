@@ -36,7 +36,7 @@ function FreeToUse() {
                 opacity: 0,
                 ease: Expo.easeInOut,
                 scrollTrigger: {
-                    trigger: ".price",
+                    trigger: ".price p",
                     start: "top 80%",
                     end: "top 60%",
                     toggleActions: "play none none none",
@@ -50,7 +50,7 @@ function FreeToUse() {
               ease: Expo.easeInOut,
               scrollTrigger: {
                 trigger: ".card",
-                start: "top 150%", // animation starts when the top of the element hits 80% of the viewport height
+                start: "top 80%", // animation starts when the top of the element hits 80% of the viewport height
                 end: "top 20%",
                 toggleActions: "play none none none", // play the animation on scroll
                 scrub: 1,
