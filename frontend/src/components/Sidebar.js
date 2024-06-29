@@ -67,9 +67,10 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
             </>
           ) : (
             <>
-              <p className="text-[#272727] text-sm font-semibold bg-gray-100 gap-3 py-1 pl-3 rounded-md flex dark:text-gray-300 dark:bg-[#141414]">
-                Welcome back, {store.userData}!
-              </p>
+            
+              <Link to="/notes" onClick={toggleSidebar} className="text-[#272727] text-sm bg-gray-100 gap-3 py-1 pl-3 rounded-md flex dark:text-gray-300 dark:bg-[#141414]">
+            <HomeOutlined />Notes
+          </Link>
               <Link to="/logout" onClick={toggleSidebar} className="gap-3 py-1 pl-3 text-sm rounded-md flex text-gray-100 dark:text-gray-300 bg-rose-500">
                 <LogoutOutlined />Logout
               </Link>

@@ -15,9 +15,8 @@ function FreeToUse() {
     useEffect(() => {
 
         gsap.from(".container img", {
-            y: 200,
-            duration: 0.8,
-            delay: 0.5,
+            y: 100,
+            duration: 1,
             opacity: 0,
             ease: Expo.easeInOut,
             scrollTrigger: {
@@ -25,9 +24,38 @@ function FreeToUse() {
               start: "top 80%", // animation starts when the top of the element hits 80% of the viewport height
               end: "top 20%",
               toggleActions: "play none none none", // play the animation on scroll
-              scrub: 2,
+              scrub: true,
             }
           });
+        
+            gsap.from(".price p", {
+                y: 50,
+                duration: 0.7,
+                stagger: 0.5,
+                delay: 0.5,
+                opacity: 0,
+                ease: Expo.easeInOut,
+                scrollTrigger: {
+                    trigger: ".price",
+                    start: "top 80%",
+                    end: "top 60%",
+                    toggleActions: "play none none none",
+                    scrub: 1,
+                }
+            });
+            gsap.from(".card", {
+              scale: 0.5,
+              duration: 0.5,
+              opacity: 0,
+              ease: Expo.easeInOut,
+              scrollTrigger: {
+                trigger: ".card",
+                start: "top 150%", // animation starts when the top of the element hits 80% of the viewport height
+                end: "top 20%",
+                toggleActions: "play none none none", // play the animation on scroll
+                scrub: 1,
+              }
+            });
       },[]);
 
   return (
@@ -44,11 +72,14 @@ function FreeToUse() {
             componentSize="full"
         >
             <Divider/>
+            <h1 className='price font-[Prompt] dark:text-white opacity-80 flex flex-row items-center justify-center text-4xl font-medium text-center capitalize pt-14 pb-5'>
+                    <p className='mx-2'>Premium</p> <p className='mx-2'>Access?</p>
+                </h1>
             </ConfigProvider>
 
             <div className="sm:px-5 flex items-center justify-center px-8 mt-20">
 
-              <Card className=" pb-5 sm:w-[50%] shadow w-full bg-gradient-to-r from-[#f1acff] to-[#81b1fa] text-black text-opacity-80"
+              <Card className="card pb-5 sm:w-[50%] shadow w-full gradient-card text-black text-opacity-80"
               >
                 <div className=" pb-10 sm:pt-6 pt-8 relative">
                   <h2 className="text-center font-bold text-3xl">Free</h2>
