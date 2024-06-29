@@ -44,26 +44,13 @@ function ContactUs() {
             ease: Expo.easeInOut,
             scrollTrigger: {
                 trigger: ".contact",
-                start: "top 5%",
+                start: "top 10%",
                 end: "top 60%",
                 toggleActions: "play none none none",
                 scrub: 1,
             }
         });
-        gsap.from(".cform", {
-          duration: 2,
-          stagger: 0.5,
-          delay: 0.5,
-          opacity: 0,
-          ease: Expo.easeInOut,
-          scrollTrigger: {
-              trigger: ".cform",
-              start: "top 5%",
-              end: "top 60%",
-              toggleActions: "play none none none",
-              scrub: 1,
-          }
-      });
+       
     }, []);
 
     return (
@@ -84,7 +71,7 @@ function ContactUs() {
                     <Form
                         name="feedback"
                         layout="vertical"
-                        className="cform w-full sm:w-1/2 duration-500"
+                        className="cform w-full sm:w-1/2"
                         ref={formRef}
                         onFinish={sendEmail}
                     >
