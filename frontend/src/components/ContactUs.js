@@ -52,6 +52,8 @@ function ContactUs() {
         });
         gsap.from(".cform", {
           duration: 2,
+          stagger: 0.5,
+          delay: 0.5,
           opacity: 0,
           ease: Expo.easeInOut,
           scrollTrigger: {
