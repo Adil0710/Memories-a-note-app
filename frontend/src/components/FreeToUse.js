@@ -12,23 +12,26 @@ function FreeToUse() {
 
     const {isDarkMode} = useTheme()
 
-    useEffect(() => {
+      useEffect(() => {
+        const mm = gsap.matchMedia();
 
         gsap.from(".container img", {
-            y: 100,
-            duration: 1,
-            opacity: 0,
-            ease: Expo.easeInOut,
-            scrollTrigger: {
-              trigger: ".container",
-              start: "top 80%", // animation starts when the top of the element hits 80% of the viewport height
-              end: "top 20%",
-              toggleActions: "play none none none", // play the animation on scroll
-              scrub: true,
-            }
-          });
-        
-            gsap.from(".price p", {
+          y: 100,
+          duration: 1,
+          opacity: 0,
+          ease: Expo.easeInOut,
+          scrollTrigger: {
+            trigger: ".container",
+            start: "top 80%", // animation starts when the top of the element hits 80% of the viewport height
+            end: "top 20%",
+            toggleActions: "play none none none", // play the animation on scroll
+            scrub: true,
+          }
+        });
+
+        mm.add("(min-width: 768px)", () => {
+            // Animations for larger screens
+            gsap.from(".contact p", {
                 y: 50,
                 duration: 0.7,
                 stagger: 0.5,
@@ -36,28 +39,77 @@ function FreeToUse() {
                 opacity: 0,
                 ease: Expo.easeInOut,
                 scrollTrigger: {
-                    trigger: ".price",
-                    start: "top 30%",
+                    trigger: ".contact",
+                    start: "top 0%",
                     end: "top 60%",
                     toggleActions: "play none none none",
                     scrub: 1,
                     markers: true
                 }
             });
-            gsap.from(".card", {
-              scale: 0.5,
-              duration: 0.5,
+        });
+
+        mm.add("(min-width: 768px)", () => {
+          // Animations for larger screens
+          gsap.from(".card", {
+              y: 50,
+              duration: 0.7,
+              stagger: 0.5,
+              delay: 0.5,
               opacity: 0,
               ease: Expo.easeInOut,
               scrollTrigger: {
-                trigger: ".card",
-                start: "top 50%", // animation starts when the top of the element hits 80% of the viewport height
-                end: "top 20%",
-                toggleActions: "play none none none", // play the animation on scroll
-                scrub: 1,
+                  trigger: ".card",
+                  start: "top 0%",
+                  end: "top 60%",
+                  toggleActions: "play none none none",
+                  scrub: 1,
+                  markers: true
               }
+          });
+      });
+
+        mm.add("(max-width: 767px)", () => {
+            // Animations for mobile screens
+            gsap.from(".price p", {
+                y: 30,
+                duration: 0.5,
+                stagger: 0.3,
+                delay: 0.3,
+                opacity: 0,
+                ease: Expo.easeInOut,
+                scrollTrigger: {
+                    trigger: ".price",
+                    start: "top 25%",
+                    end: "top 60%",
+                    toggleActions: "play none none none",
+                    scrub: 1,
+                    markers: true
+                }
             });
-      },[]);
+        });
+
+        mm.add("(max-width: 767px)", () => {
+          // Animations for mobile screens
+          gsap.from(".card", {
+              y: 30,
+              duration: 0.5,
+              stagger: 0.3,
+              delay: 0.3,
+              opacity: 0,
+              ease: Expo.easeInOut,
+              scrollTrigger: {
+                  trigger: ".card",
+                  start: "top 25%",
+                  end: "top 60%",
+                  toggleActions: "play none none none",
+                  scrub: 1,
+                  markers: true
+              }
+          });
+      });
+        return () => mm.revert(); // Cleanup matchMedia listeners on component unmount
+    }, []);
 
   return (
     <div className='bg-white w-full dark:bg-[#0b0b0b] min-h-screen lg:px-19 sm:px-10 px-2 pb-32'>
