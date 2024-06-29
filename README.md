@@ -1,4 +1,4 @@
-# Memories Notes App ![logo](./frontend/public/logo192.png)
+# Memories Notes App ![logo]<img src="./frontend/public/logo192.png" width="200" height="200">
 
 A fullstack web application built with the MERN stack that allows users to sign up, log in, create, update, delete, and download notes in text format. This app features modern UI/UX with various libraries and frameworks.
 
