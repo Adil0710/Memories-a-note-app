@@ -1,7 +1,7 @@
 # Memories Notes App <img src="./frontend/public/logo192.png" width="30" height="30">
 
 A fullstack web application built with the MERN stack that allows users to sign up, log in, create, update, delete, and download notes in text format. This app features modern UI/UX with various libraries and frameworks.
-[https://memories-note-app.vercel.app/](Click here) to preview
+[https://memories-note-app.vercel.app/] (Click here) to preview
 
 ## App Screenshots
 ![Screenshot (5)](https://github.com/Adil0710/Memories-a-note-app/assets/91872021/1d306c61-908d-4a84-8d0a-390a36b8c7bd)
