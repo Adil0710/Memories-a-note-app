@@ -36,8 +36,8 @@ function FreeToUse() {
                 opacity: 0,
                 ease: Expo.easeInOut,
                 scrollTrigger: {
-                    trigger: ".price p",
-                    start: "top 80%",
+                    trigger: ".price",
+                    start: "top 40%",
                     end: "top 60%",
                     toggleActions: "play none none none",
                     scrub: 1,

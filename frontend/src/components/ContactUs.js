@@ -43,8 +43,8 @@ function ContactUs() {
             opacity: 0,
             ease: Expo.easeInOut,
             scrollTrigger: {
-                trigger: ".contact p",
-                start: "top 80%",
+                trigger: ".contact",
+                start: "top 40%",
                 end: "top 60%",
                 toggleActions: "play none none none",
                 scrub: 1,
@@ -56,7 +56,7 @@ function ContactUs() {
           ease: Expo.easeInOut,
           scrollTrigger: {
               trigger: ".cform",
-              start: "top 80%",
+              start: "top 50%",
               end: "top 60%",
               toggleActions: "play none none none",
               scrub: 1,
