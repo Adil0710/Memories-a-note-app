@@ -34,7 +34,11 @@ function ContactUs() {
       }
   };
 
-    useEffect(() => {
+  useEffect(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+        // Animations for larger screens
         gsap.from(".contact p", {
             y: 50,
             duration: 0.7,
@@ -44,15 +48,37 @@ function ContactUs() {
             ease: Expo.easeInOut,
             scrollTrigger: {
                 trigger: ".contact",
-                start: "top 30%",
+                start: "top 0%",
                 end: "top 60%",
                 toggleActions: "play none none none",
                 scrub: 1,
                 markers: true
             }
         });
-       
-    }, []);
+    });
+
+    mm.add("(max-width: 767px)", () => {
+        // Animations for mobile screens
+        gsap.from(".contact p", {
+            y: 30,
+            duration: 0.5,
+            stagger: 0.3,
+            delay: 0.3,
+            opacity: 0,
+            ease: Expo.easeInOut,
+            scrollTrigger: {
+                trigger: ".contact",
+                start: "top 25%",
+                end: "top 60%",
+                toggleActions: "play none none none",
+                scrub: 1,
+                markers: true
+            }
+        });
+    });
+
+    return () => mm.revert(); // Cleanup matchMedia listeners on component unmount
+}, []);
 
     return (
         <div className='bg-gray-50 dark:bg-[#090909] min-h-[95vh] w-full sm:min-h-screen lg:px-19 sm:px-10 px-2'>
