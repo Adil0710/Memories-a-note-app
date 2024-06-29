@@ -84,7 +84,7 @@ function ContactUs() {
                     <Form
                         name="feedback"
                         layout="vertical"
-                        className="cform w-full sm:w-1/2 duration-200"
+                        className="cform w-full sm:w-1/2 duration-500"
                         ref={formRef}
                         onFinish={sendEmail}
                     >
