@@ -37,10 +37,11 @@ function FreeToUse() {
                 ease: Expo.easeInOut,
                 scrollTrigger: {
                     trigger: ".price",
-                    start: "top 50%",
+                    start: "top 30%",
                     end: "top 60%",
                     toggleActions: "play none none none",
                     scrub: 1,
+                    markers: true
                 }
             });
             gsap.from(".card", {
