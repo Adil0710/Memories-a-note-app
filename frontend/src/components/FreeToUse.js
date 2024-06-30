@@ -40,8 +40,8 @@ function FreeToUse() {
                 ease: Expo.easeInOut,
                 scrollTrigger: {
                     trigger: ".price",
-                    start: "top 50%", //5
-                    end: "top 70%",
+                    start: "top 70%", //5
+                    end: "top 90%",   //70
                     toggleActions: "play none none none",
                     scrub: 1,
                 }
@@ -57,8 +57,8 @@ function FreeToUse() {
               ease: Expo.easeInOut,
               scrollTrigger: {
                   trigger: ".card",
-                  start: "top 50%",  //10
-                  end: "top 60%",
+                  start: "top 70%",  //10
+                  end: "top 90%",  //60
                   toggleActions: "play none none none",
                   scrub: 1,
               }
