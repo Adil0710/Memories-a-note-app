@@ -20,7 +20,7 @@ const app = express()
 app.use(express.json())
 app.use(CookieParser())
 app.use(cors({
-    origin: true,
+    origin: "https://memories-note-app.vercel.app/",
     credentials: true,
 }))
 
