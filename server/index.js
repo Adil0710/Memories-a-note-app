@@ -1,8 +1,8 @@
 // Load env variables
 import { config } from "dotenv";
-if(process.env.NODE_ENV !== 'production'){
+
     config()
-}
+
 
 // Import dependencies
 import express from "express";
@@ -20,7 +20,7 @@ const app = express()
 app.use(express.json())
 app.use(CookieParser())
 app.use(cors({
-    origin: "https://memories-note-app.vercel.app",
+    origin: process.env.API_URL,
     credentials: true,
 }))
 
