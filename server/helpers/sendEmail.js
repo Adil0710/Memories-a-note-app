@@ -10,9 +10,7 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: process.env.EMAIL_USER, // Use environment variables for sensitive data
     pass: process.env.EMAIL_PASS,
-  },
-  logger: true,  // Enable logging
-  debug: true,  // Show debug output
+  },  // Show debug output
 });
 
 transporter.verify(function(error, success) {
