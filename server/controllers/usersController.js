@@ -75,15 +75,21 @@ async function login(req, res) {
     }
 }
 
-function logout (req, res) {
+function logout(req, res) {
     try {
-        res.clearCookie("Authorization")
-        res.status(200).json({msg: "Logged out successfully"}) 
+        res.clearCookie("Authorization", {
+            httpOnly: true,
+            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+            secure: process.env.NODE_ENV === 'production',
+        });
+        console.log('Cookie cleared');
+        res.status(200).json({ msg: "Logged out successfully" });
     } catch (error) {
-        console.log(error);
-        res.status(400).json({msg: "An error occurred while logging out. Please try again later."})
+        console.log('Error during logout:', error);
+        res.status(400).json({ msg: "An error occurred while logging out. Please try again later." });
     }
 }
+
 
 function checkAuth(req, res){
     try {

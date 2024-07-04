@@ -1,6 +1,6 @@
 // Load env variables
 import { config } from "dotenv";
-
+//if(process.env.NODE_ENV !== 'production'){
     config()
 
 
@@ -20,7 +20,7 @@ const app = express()
 app.use(express.json())
 app.use(CookieParser())
 app.use(cors({
-    origin: process.env.API_URL,
+    origin: true,
     credentials: true,
 }))
 
