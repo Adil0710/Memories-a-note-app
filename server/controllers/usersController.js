@@ -62,7 +62,7 @@ async function login(req, res) {
         res.cookie("Authorization", token, {
             expires: new Date(exp),
             httpOnly: true,
-            sameSite: sameSite,
+            sameSite: "lax",
             secure: process.env.NODE_ENV === 'production',
         });
 
@@ -79,7 +79,7 @@ const logout = async (req, res) => {
     try {
         res.clearCookie("Authorization", {
             httpOnly: true,
-            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+            sameSite: 'lax',
             secure: process.env.NODE_ENV === 'production',
             path: '/', // Ensure this matches the path used when setting the cookie
             domain: 'memories-api-dusky.vercel.app', // Adjust domain as per your deployment
