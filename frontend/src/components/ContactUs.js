@@ -48,7 +48,7 @@ function ContactUs() {
             ease: Expo.easeInOut,
             scrollTrigger: {
                 trigger: ".contact",
-                start: "top 70%", //5
+                start: "top 10%", //5
                 end: "top 90%",  //60
                 toggleActions: "play none none none",
                 scrub: 1,
